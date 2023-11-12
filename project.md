@@ -42,8 +42,8 @@ Minimal Viable Outcome:
   1. Create score system
   2. Create victory/loss screen and animate
 
-I will be using the video “Creating Space Invaders in Pygame/Python” by Clear Code on Youtube as a base, which I linked below. 
-
 ##
+
+I will be using the video “Creating Space Invaders in Pygame/Python” by Clear Code on Youtube as a base, which I linked below. 
 
 <https://www.youtube.com/watch?v=o-6pADy5Mdg>
