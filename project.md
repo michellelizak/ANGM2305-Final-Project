@@ -5,6 +5,7 @@
 
 ## Description
 1-2 sentence description of what it will do and how it is relevant to media and digital arts.
+My program is a mini game that implements digital art by having a visuals and characters designed by me, and contains animated and interactive pixels that simulate movement (in the form of a game).
 
 ## Features
 - Feature 1: Player and Laser
@@ -18,15 +19,15 @@
 
 ## Challenges
 - Determine how to make complex custom pixel artwork of characters (different from the video provided)
-- Determine how to animate the “You Win!” and “Game Over” game text
-- Determine how to make the aliens respawn for an additional challenge to the player
+- Determine how to animate the “You Win!” and “Game Over” game text (fade in / typewriter format)
+- Determine how to make the aliens respawn during a round for an additional challenge to the player
 
 ## Outcomes
 Ideal Outcome:
-- Create a functioning space invasion game with characters designed by me, aliens that can respawn, and animated “You Win!” and “Game Over!” text.
+- Create a space invasion game with characters fully designed by me, aliens that can respawn, and “You Win!” and “Game Over!” text that has a typewriter animation or fades in.
 
 Minimal Viable Outcome:
--Create a functioning space invasion game with animated aliens, a player that can move across the screen and shoot lasers at the aliens, and a “You Win!”/”Game Over” screen.
+-Create a functioning space invasion game with animated aliens that are somewhat modified, a player that can move across the screen and shoot lasers at the aliens, and a “You Win!”/”Game Over” screen that is animated in some way.
 
 ## Milestones
 
