@@ -4,7 +4,6 @@
 <https://github.com/michellelizak/ANGM2305-Final-Project>
 
 ## Description
-1-2 sentence description of what it will do and how it is relevant to media and digital arts.
 My program is a mini game that implements digital art by having a visuals and characters designed by me, and contains animated and interactive pixels that simulate movement (in the form of a game).
 
 ## Features
