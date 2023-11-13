@@ -8,10 +8,10 @@ My program is a mini game that implements digital art by having a visuals and ch
 
 ## Features
 - Feature 1: Player and Laser
-	- Player will shoot lasers in an attempt to kill all of the aliens. I would create a player class which would be defined using the Pygame library. The player's position, speed, and horizontal constraint would be initialized, and the class includes methods for handling player input and shooting lasers.
+	- Player will shoot lasers in an attempt to kill all of the aliens. I would create a player class which would be defined using the Pygame library, and the player's position, speed, and horizontal constraint would be initialized. The class would include methods for handling player input and shooting lasers.
 
 - Feature 2: Aliens
-	- Pixel aliens will move across the screen in a unique pattern. I would do this by making an Alien class that initializes an alien sprite with a specified color, position, and point value, and would create another class that allows the sprite to move from left to right
+	- Pixel aliens will move across the screen in a unique pattern. I would do this by making an alien class that initializes an alien sprite with a specified color, position, and point value, and would create another class that allows the sprite to move from left to right
 
 - Feature N: Kill and Win Screen
 	- A kill screen and win screen will be displayed and player health and score will be kept track of. The code in my main function would keep track of the score by incrementing it when player lasers hit aliens or extra elements. The victory message would be drawn on the screen during the game loop when the condition for winning is met.
