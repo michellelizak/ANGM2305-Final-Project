@@ -15,19 +15,19 @@ My program is a mini game that implements digital art by having a visuals and ch
 	- Pixel aliens will move across the screen in a unique pattern. I would do this by making an Alien class that initializes an alien sprite with a specified color, position, and point value, and would create another class that allows the sprite to move from left to right
 
 - Feature N: Kill and Win Screen
-	- A kill screen and win screen will be displayed and player health and score will be kept track of. The code would keep track of the score in my main function by incrementing it when player lasers hit aliens or extra elements. The victory message would be drawn on the screen during the game loop when the condition for winning is met.
+	- A kill screen and win screen will be displayed and player health and score will be kept track of. The code in my main function would keep track of the score by incrementing it when player lasers hit aliens or extra elements. The victory message would be drawn on the screen during the game loop when the condition for winning is met.
 
 ## Challenges
 - Determine how to make complex custom pixel artwork of characters (different from the video provided)
-- Determine how to animate the “You Win!” and “Game Over” game text (fade in / typewriter format)
+- Determine how to keep track of high scores
 - Determine how to make the aliens respawn during a round for an additional challenge to the player
 
 ## Outcomes
 Ideal Outcome:
-- Create a space invasion game with characters fully designed by me, aliens that can respawn, and “You Win!” and “Game Over!” text that has a typewriter animation or fades in.
+- Create a space invasion game with characters fully designed by me, aliens that can respawn after killed with lasers by the player, keeps track of the player's high score and current score, and a “You Win!”/”Game Over” screen.
 
 Minimal Viable Outcome:
--Create a functioning space invasion game with animated aliens that are somewhat modified, a player that can move across the screen and shoot lasers at the aliens, and a “You Win!”/”Game Over” screen that is animated in some way.
+-Create a functioning space invasion game with animated aliens that are somewhat modified, a player that can move across the screen and shoot lasers at the aliens, a score tracker on the screen, and a “You Win!”/”Game Over” screen that is animated in some way.
 
 ## Milestones
 
@@ -40,8 +40,8 @@ Minimal Viable Outcome:
   2. Determine how to create respawn mechanism
 
 - Week N (Final)
-  1. Create score system
-  2. Create victory/loss screen and animate
+  1. Create score system and high score memory
+  2. Create victory/loss screen 
 
 ##
 
