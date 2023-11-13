@@ -23,7 +23,7 @@ My program is a mini game that implements digital art by having a visuals and ch
 
 ## Outcomes
 Ideal Outcome:
-- Create a space invasion game with characters fully designed by me, aliens that can respawn after killed with lasers by the player, keeps track of the player's high score and current score, and a “You Win!” screen.
+- Create a space invasion game with characters fully designed by me, aliens that can respawn after killed with lasers by the player, keeps track of the player's high score and current score, and a “You Win!/Game Over!” screen.
 
 Minimal Viable Outcome:
 - Create a functioning space invasion game with animated aliens that are somewhat modified, a player that can move across the screen and shoot lasers at the aliens, a score tracker on the screen, and a “You Win!” screen that is animated in some way.
