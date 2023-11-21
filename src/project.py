@@ -1,12 +1,13 @@
 import pygame, sys
+from player import Player
 
 class Game:
 	
-    def __init__(self):
-        pass
-	
-    def run(self):	
-        pass
+	def __init__(self):
+		# Player setup
+		player_sprite = Player((screen_width / 2,screen_height),screen_width,5)
+		self.player = pygame.sprite.GroupSingle(player_sprite)
+
 
 if __name__ == '__main__':
 	pygame.init()
