@@ -7,7 +7,9 @@ class Game:
 		# Player setup
 		player_sprite = Player((screen_width / 2,screen_height),screen_width,5)
 		self.player = pygame.sprite.GroupSingle(player_sprite)
+
 	def run(self):
+		self.player.update()
 		self.player.draw(screen)
 
 if __name__ == '__main__':

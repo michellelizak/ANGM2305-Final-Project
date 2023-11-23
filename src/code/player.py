@@ -42,14 +42,3 @@ class Player(pygame.sprite.Sprite):
 		self.constraint()
 		self.recharge()
 
-	def constraint(self):
-		if self.rect.left <= 0:
-			self.rect.left = 0
-		if self.rect.right >= self.max_x_constraint:
-			self.rect.right = self.max_x_constraint
-
-	def update(self):
-		self.get_input()
-		self.constraint()
-		self.recharge()
-
