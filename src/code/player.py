@@ -30,3 +30,28 @@ class Player(pygame.sprite.Sprite):
 			self.laser_time = pygame.time.get_ticks()
 			self.laser_sound.play()
 
+
+	def recharge(self):
+		if not self.ready:
+			current_time = pygame.time.get_ticks()
+			if current_time - self.laser_time >= self.laser_cooldown:
+				self.ready = True
+	def constraint(self):
+		if self.rect.left <= 0:
+			self.rect.left = 0
+		if self.rect.right >= self.max_x_constraint:
+			self.rect.right = self.max_x_constraint
+
+	def shoot_laser(self):
+		self.lasers.add(Laser(self.rect.center,-8,self.rect.bottom))
+
+	def update(self):
+		self.get_input()
+		self.constraint()
+		self.recharge()
+		self.lasers.update()
+	def constraint(self):
+		if self.rect.left <= 0:
+			self.rect.left = 0
+		if self.rect.right >= self.max_x_constraint:
+			self.rect.right = self.max_x_constrain
