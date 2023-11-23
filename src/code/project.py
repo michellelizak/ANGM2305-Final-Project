@@ -7,7 +7,8 @@ class Game:
 		# Player setup
 		player_sprite = Player((screen_width / 2,screen_height),screen_width,5)
 		self.player = pygame.sprite.GroupSingle(player_sprite)
-
+	def run(self):
+		self.player.draw(screen)
 
 if __name__ == '__main__':
 	pygame.init()
@@ -17,8 +18,6 @@ if __name__ == '__main__':
 	clock = pygame.time.Clock()
 	game = Game()
 
-	ALIENLASER = pygame.USEREVENT + 1
-	pygame.time.set_timer(ALIENLASER,800)
 
 	while True:
 		for event in pygame.event.get():
