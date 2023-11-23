@@ -54,4 +54,4 @@ class Player(pygame.sprite.Sprite):
 		if self.rect.left <= 0:
 			self.rect.left = 0
 		if self.rect.right >= self.max_x_constraint:
-			self.rect.right = self.max_x_constrain
+			self.rect.right = self.max_x_constraint
