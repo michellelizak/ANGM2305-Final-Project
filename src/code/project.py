@@ -50,6 +50,10 @@ class Game:
 		self.player.sprite.lasers.draw(screen)
 		self.player.draw(screen)
 
+		self.blocks.draw(screen)
+		self.aliens.draw(screen)
+		#draw sprite groups
+
 if __name__ == '__main__':
 	pygame.init()
 	screen_width = 600
