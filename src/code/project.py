@@ -40,7 +40,9 @@ class Game:
 			for col_index, col in enumerate(range(cols)):
 				x = col_index * x_distance + x_offset
 				y = row_index * y_distance + y_offset
-				alien_sprite = Alien('red',x,y)
+
+				if row_index == 0: alien_sprite = Alien('yellow',x,y)
+				elif 1 <= row_index <= 2: alien_sprite = Alien('green',x,y)
 				self.aliens.add(alien_sprite)
 
 	def run(self):
