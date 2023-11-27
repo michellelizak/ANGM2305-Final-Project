@@ -35,11 +35,11 @@ class Game:
 		for offset_x in offset:
 			self.create_obstacle(x_start,y_start,offset_x)
 
-	def alien_setup(self,rows,cols):
-		for row_index, row in enumerate(rows):
-			for col_index, col in enumerate(cols):
-				x = col_index
-				y = row_index 
+	def alien_setup(self,rows,cols,x_distance = 60,y_distance = 48, x_offset = 70, y_offset = 100):
+		for row_index, row in enumerate(range(rows)):
+			for col_index, col in enumerate(range(cols)):
+				x = col_index * x_distance + x_offset
+				y = row_index * y_distance + y_offset
 				alien_sprite = Alien('red',x,y)
 				self.aliens.add(alien_sprite)
 
