@@ -3,7 +3,7 @@ from laser import Laser
 
 class Player(pygame.sprite.Sprite):
     def __init__(self,pos,constraint,speed):
-        
+
     def get_input(self):
 
     def recharge(self):
@@ -11,7 +11,7 @@ class Player(pygame.sprite.Sprite):
     def constraint(self):
 
     def shoot_laser(self):
-        print('shoot laser')
+        self.lasers.add(Laser(self.rect.center))
 
     def update(self):
 
