@@ -1,6 +1,7 @@
 import pygame, sys
 from player import Player
 import obstacle
+from alien import Alien
 
 class Game:
 	
@@ -15,7 +16,10 @@ class Game:
 		self.blocks = pygame.sprite.Group()
 		self.obstacle_amount = 4
 		self.obstacle_x_positions = [num for num in range(self.obstacle_amount)]
-		self.create_multiple_obstacles(self.obstacle_x_positions, x_start = 0, y_start = 480)
+		self.create_multiple_obstacles(*self.obstacle_x_positions, x_start = screen_width / 15, y_start = 480)
+
+		#alien setup
+		self.aliens = pygame.sprite.Group()
 
 	def create_obstacle(self,x_start,y_start,offset_x):
 		for row_index, row in enumerate(self.shape):
