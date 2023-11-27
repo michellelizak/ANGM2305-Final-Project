@@ -23,6 +23,9 @@ class Game:
 					y = y_start + col_index * self.block_size
 					block = obstacle.Block(self.block_size,(241,79,80),x,y)
 					self.blocks.add(block)
+
+	def create_multiple_obstacles(self, x_start):
+
 	def run(self):
 		self.player.update()
 		self.player.sprite.lasers.draw(screen)
