@@ -15,12 +15,12 @@ class Game:
 		self.blocks = pygame.sprite.Group()
 		self.create_obstacle()
 
-	def create_obstacle(self):
+	def create_obstacle(self, x_start, y_start):
 		for row_index, row in enumerate(self.shape):
 			for col_index,col in enumerate(row):
 				if col == 'x':
-					x = col_index * self.block_size
-					y = col_index * self.block_size
+					x = x_start + col_index * self.block_size
+					y = y_start + col_index * self.block_size
 					block = obstacle.Block(self.block_size,(241,79,80),x,y)
 					self.blocks.add(block)
 	def run(self):
