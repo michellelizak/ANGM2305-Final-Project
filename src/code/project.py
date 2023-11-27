@@ -1,5 +1,6 @@
 import pygame, sys
 from player import Player
+import obstacle
 
 class Game:
 	
@@ -7,6 +8,19 @@ class Game:
 		# Player setup
 		player_sprite = Player((screen_width / 2,screen_height),screen_width,5)
 		self.player = pygame.sprite.GroupSingle(player_sprite)
+
+		#obstacle setup
+		self.shape = obstacle.shape
+		self.block_size = 6
+		self.blocks = pygame.sprite.Group()
+
+	def create_obstacle(self):
+		for row_index, row in enumerate(self.shape):
+			for col_index,col in enumerate(row):
+				if col == 'x':
+					x = col_index
+					y = col_index * self.block_size
+					block = obstacle.Block(self.block_size,(241,79,80),x,y)
 
 	def run(self):
 		self.player.update()
