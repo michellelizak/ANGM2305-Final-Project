@@ -21,6 +21,7 @@ class Game:
 		#alien setup
 		self.aliens = pygame.sprite.Group()
 		self.alien_setup(rows = 6, cols = 8)
+		self.alien_direction = 1
 
 	def create_obstacle(self,x_start,y_start,offset_x):
 		for row_index, row in enumerate(self.shape):
@@ -47,6 +48,8 @@ class Game:
 
 	def run(self):
 		self.player.update()
+		self.aliens.update(self.alien_direction)
+
 		self.player.sprite.lasers.draw(screen)
 		self.player.draw(screen)
 
