@@ -59,7 +59,7 @@ class Game:
 				self.alien_direction = -1
 				self.alien_move_down(2)
 			elif alien.rect.left <= 0:
-				self.alien_direction = 1
+				self.alien_direction = 10
 				self.alien_move_down(2)	
 
 	def alien_move_down(self):
@@ -119,6 +119,17 @@ class Game:
 						if pygame.sprite.spritecollide(laser,self.blocks,True):
 							laser.kill()
 							print('dead')
+
+				if self.aliens: 
+					for alien in self.aliens:
+						pygame.sprite.spritecollide(alien,self.blocks,True)
+
+						if pygame.sprite.spritecollide(alien,self.player,False):
+							pygame.quit()
+							sys.exit()
+
+
+
 if __name__ == '__main__':
 	pygame.init()
 	screen_width = 600
