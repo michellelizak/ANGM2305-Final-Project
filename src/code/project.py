@@ -46,11 +46,11 @@ class Game:
 					block = obstacle.Block(self.block_size,(241,79,80),x,y)
 					self.blocks.add(block)
 
-	def create_multiple_obstacles(self,*offset,x_start, y_start):
+	def create_multiple_obstacles(self,*offset,x_start,y_start):
 		for offset_x in offset:
 			self.create_obstacle(x_start,y_start,offset_x)
 
-	def alien_setup(self,rows,cols,x_distance = 60,y_distance = 48, x_offset = 70, y_offset = 100):
+	def alien_setup(self,rows,cols,x_distance = 60,y_distance = 48,x_offset = 70,y_offset = 100):
 		for row_index, row in enumerate(range(rows)):
 			for col_index, col in enumerate(range(cols)):
 				x = col_index * x_distance + x_offset
