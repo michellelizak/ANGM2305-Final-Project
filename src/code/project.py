@@ -94,6 +94,14 @@ class Game:
 
 		#draw sprite groups
 
+	def collision_checks(self):
+		#player lasers
+		if self.player.sprite.lasers:
+			for laser in self.player.sprite.lasers:
+				#obstacles collisions
+				if pygame.sprite.spritecollide(laser,self.blocks,True):
+					print('laser')
+
 if __name__ == '__main__':
 	pygame.init()
 	screen_width = 600
