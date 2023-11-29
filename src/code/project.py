@@ -46,9 +46,16 @@ class Game:
 				elif 1 <= row_index <= 2: alien_sprite = Alien('green',x,y)
 				self.aliens.add(alien_sprite)
 
+	def alien_position_checker(self):
+		all_aliens = self.aliens.sprites()
+		for alien in all_aliens:
+			if alien.rect.right >= screen_width:
+				self.alien_direction = -1
+
 	def run(self):
 		self.player.update()
 		self.aliens.update(self.alien_direction)
+		self.alien_position_checker()
 
 		self.player.sprite.lasers.draw(screen)
 		self.player.draw(screen)
