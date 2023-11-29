@@ -15,7 +15,7 @@ class Game:
 		# health and score setup
 		self.lives = 3
 		self.live_surface = pygame.image.load('../graphics/player.png').convert_alpha()
-		self.live_x_start_pos = screen_wdith = (self.live_surf.get_size(0))
+		self.live_x_start_pos = screen_wdith = (self.live_surf.get_size(0) * 2 + 20)
 
 		#obstacle setup
 		self.shape = obstacle.shape
@@ -84,21 +84,6 @@ class Game:
 			self.extra.add(Extra(choice(['right,left']),screen_width))
 			self.extra_spawn_time = randint(400,800)
 
-	def run(self):
-		self.player.update()
-		self.aliens.update(self.alien_direction)
-		self.alien_position_checker()
-		self.extra_alien_timer()
-		self.extra.update()
-
-		self.player.sprite.lasers.draw(screen)
-		self.player.draw(screen)
-
-		self.blocks.draw(screen)
-		self.aliens.draw(screen)
-
-		#draw sprite groups
-
 	def collision_checks(self):
 		#player lasers
 		if self.player.sprite.lasers:
@@ -133,6 +118,26 @@ class Game:
 							pygame.quit()
 							sys.exit()
 
+	def display_lives(self):
+		for live in range(self.lives - 1):
+			x = self.live_x_start_pos + (live * self.live_surface[0] + 10)
+			screen.blit(self.live_surf,(x,8))
+
+
+	def run(self):
+		self.player.update()
+		self.aliens.update(self.alien_direction)
+		self.alien_position_checker()
+		self.extra_alien_timer()
+		self.extra.update()
+
+		self.player.sprite.lasers.draw(screen)
+		self.player.draw(screen)
+
+		self.blocks.draw(screen)
+		self.aliens.draw(screen)
+
+		#draw sprite groups
 
 
 if __name__ == '__main__':
