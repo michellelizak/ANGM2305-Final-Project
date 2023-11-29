@@ -78,7 +78,7 @@ class Game:
 
 	def alien_shoot(self):
 		if self.aliens.sprites():
-			random_alien = choice(self.aliens.sprites)
+			random_alien = choice(self.aliens.sprites())
 			laser_sprite = Laser(random_alien.rect.center,6,screen_height)
 			self.alien_lasers.add(laser_sprite)
 
@@ -96,15 +96,16 @@ class Game:
 				if pygame.sprite.spritecollide(laser,self.blocks,True):
 					laser.kill()
 
-				#aliens collisions
-				if pygame.sprite.spritecollide(laser,self.aliens,True):
-					laser.kill()
-
-				#collisions
+				#alien collisions
 				aliens_hit = pygame.sprite.spritecollide(laser,self.aliens,True)
 				if aliens_hit:
 					for alien in aliens_hit:
 						self.score += alien.value
+					laser.kill()
+
+				# extra alien collision
+				if pygame.sprite.spritecollide(laser,self.extra,True):
+					self.score += 500
 					laser.kill()
 
 				#alien
