@@ -16,6 +16,8 @@ class Game:
 		self.lives = 3
 		self.live_surface = pygame.image.load('../graphics/player.png').convert_alpha()
 		self.live_x_start_pos = screen_wdith = (self.live_surf.get_size(0) * 2 + 20)
+		self.score = 0
+		self.font = pygame.font.Font('../font/Pixeled.ttf',20)
 
 		#obstacle setup
 		self.shape = obstacle.shape
