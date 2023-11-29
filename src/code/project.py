@@ -136,12 +136,12 @@ class Game:
 			screen.blit(self.live_surf,(x,8))
 
 	def display_score(self):
-		score_surf = self.font.render(f'score: {self.core}',False,'white')
-		score_rect = score_surf.get_rect(topleft = (0,0))
+		score_surf = self.font.render(f'score: {self.score}',False,'white')
+		score_rect = score_surf.get_rect(topleft = (10,-10))
 		screen.blit(score_surf,score_rect)
 
 	def victory_message(self):
-		if not self.aliens.spirtes():
+		if not self.aliens.sprites():
 			victory_surf = self.font.render('You won!',False,'white')
 			victory_rect = victory_surf.get_rect(center = (screen_width / 2, screen_height / 2))
 			screen.blit(victory_surf,victory_rect)
