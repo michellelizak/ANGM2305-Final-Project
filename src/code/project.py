@@ -100,8 +100,11 @@ class Game:
 			for laser in self.player.sprite.lasers:
 				#obstacles collisions
 				if pygame.sprite.spritecollide(laser,self.blocks,True):
-					print('laser')
+					laser.kill()
 
+				#aliens collisions
+				if pygame.sprite.spritecollide(laser,self.aliens,True):
+					laser.kill()
 if __name__ == '__main__':
 	pygame.init()
 	screen_width = 600
