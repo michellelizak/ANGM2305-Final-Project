@@ -42,7 +42,7 @@ class Game:
 			for col_index,col in enumerate(row):
 				if col == 'x':
 					x = x_start + col_index * self.block_size +  offset_x
-					y = y_start + col_index * self.block_size 
+					y = y_start + row_index * self.block_size
 					block = obstacle.Block(self.block_size,(241,79,80),x,y)
 					self.blocks.add(block)
 
