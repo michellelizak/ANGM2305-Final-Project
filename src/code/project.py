@@ -140,19 +140,22 @@ class Game:
 
 	def run(self):
 		self.player.update()
-		self.aliens.update(self.alien_direction)
-		self.alien_position_checker()
 		self.alien_lasers.update()
-		self.extra_alien_timer()
 		self.extra.update()
+
+		self.aliens.update(self.alien_direction)		
+		self.alien_position_checker()
+		self.extra_alien_timer()
 		self.collision_checks()
-		self.display_lives()
 
 		self.player.sprite.lasers.draw(screen)
 		self.player.draw(screen)
-
 		self.blocks.draw(screen)
 		self.aliens.draw(screen)
+		self.alien_lasers.draw(screen)
+		self.extra.draw(screen)
+		self.display_lives()
+		self.display_score()
 
 		#draw sprite groups
 
