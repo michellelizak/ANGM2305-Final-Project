@@ -144,7 +144,7 @@ class Game:
 		if not self.aliens.spirtes():
 			victory_surf = self.font.render('You won!',False,'white')
 			victory_rect = victory_surf.get_rect(center = (screen_width / 2, screen_height / 2))
-			screen.blit(victor_surf,victory_rect)
+			screen.blit(victory_surf,victory_rect)
 
 	def run(self):
 		self.player.update()
