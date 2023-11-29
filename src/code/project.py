@@ -133,6 +133,10 @@ class Game:
 			x = self.live_x_start_pos + (live * (self.live_surf.get_size()[0] + 10))
 			screen.blit(self.live_surf,(x,8))
 
+	def display_score(self):
+		score_surf = self.font.render(f'score: {self.core}',False,'white')
+		score_rect = score_surf.get_rect(topleft = (0,0))
+		screen.blit(score_surf,score_rect)
 
 	def run(self):
 		self.player.update()
