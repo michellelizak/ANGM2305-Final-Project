@@ -14,7 +14,7 @@ class Game:
 
 		# health and score setup
 		self.lives = 3
-		self.live_surface = pygame.image.load('../graphics/player.png').convert_alpha()
+		self.live_surf = pygame.image.load('../graphics/player.png').convert_alpha()
 		self.live_x_start_pos = screen_width - (self.live_surf.get_size()[0] * 2 + 20)
 		self.score = 0
 		self.font = pygame.font.Font('../font/Pixeled.ttf',20)
@@ -41,7 +41,7 @@ class Game:
 		for row_index, row in enumerate(self.shape):
 			for col_index,col in enumerate(row):
 				if col == 'x':
-					x = x_start + col_index * self.block_size +  offset_x
+					x = x_start + col_index * self.block_size + offset_x
 					y = y_start + row_index * self.block_size
 					block = obstacle.Block(self.block_size,(241,79,80),x,y)
 					self.blocks.add(block)
@@ -58,6 +58,7 @@ class Game:
 
 				if row_index == 0: alien_sprite = Alien('yellow',x,y)
 				elif 1 <= row_index <= 2: alien_sprite = Alien('green',x,y)
+				else: alien_sprite = Alien('red',x,y)
 				self.aliens.add(alien_sprite)
 
 	def alien_position_checker(self):
@@ -70,7 +71,7 @@ class Game:
 				self.alien_direction = 1
 				self.alien_move_down(2)	
 
-	def alien_move_down(self):
+	def alien_move_down(self,distance):
 		if self.aliens:
 			for alien in self.aliens.sprites():
 				alien.rect.y += distance
@@ -84,7 +85,7 @@ class Game:
 	def extra_alien_timer(self):
 		self.extra_spawn_time -= 1
 		if self.extra_spawn_time <= 0:
-			self.extra.add(Extra(choice(['right,left']),screen_width))
+			self.extra.add(Extra(choice(['right','left']),screen_width))
 			self.extra_spawn_time = randint(400,800)
 
 	def collision_checks(self):
@@ -94,13 +95,6 @@ class Game:
 				#obstacles collisions
 				if pygame.sprite.spritecollide(laser,self.blocks,True):
 					laser.kill()
-
-				if pygame.sprite.spritecollide(laser,self.player,False):
-					laser.kill()
-					self.lives -= 1
-					if self.lives <= 0:
-						pygame.quit()
-						sys.exit()
 
 				#aliens collisions
 				if pygame.sprite.spritecollide(laser,self.aliens,True):
@@ -116,12 +110,16 @@ class Game:
 				#alien
 				if self.alien_lasers:
 					for laser in self.alien_lasers:
+					# obstacle collisions
 						if pygame.sprite.spritecollide(laser,self.blocks,True):
 							laser.kill()
 
-						if pygame.sprite.spritecollide(laser,self.blocks,True):
-							laser.kill()
-							print('dead')
+				if pygame.sprite.spritecollide(laser,self.player,False):
+					laser.kill()
+					self.lives -= 1
+					if self.lives <= 0:
+						pygame.quit()
+						sys.exit()
 
 				if self.aliens: 
 					for alien in self.aliens:
