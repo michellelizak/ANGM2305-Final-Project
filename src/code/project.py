@@ -12,6 +12,11 @@ class Game:
 		player_sprite = Player((screen_width / 2,screen_height),screen_width,5)
 		self.player = pygame.sprite.GroupSingle(player_sprite)
 
+		# health and score setup
+		self.lives = 3
+		self.live_surface = pygame.image.load('../graphics/player.png').convert_alpha()
+		self.live_x_start_pos = screen_wdith = (self.live_surf.get_size(0))
+
 		#obstacle setup
 		self.shape = obstacle.shape
 		self.block_size = 6
@@ -59,7 +64,7 @@ class Game:
 				self.alien_direction = -1
 				self.alien_move_down(2)
 			elif alien.rect.left <= 0:
-				self.alien_direction = 10
+				self.alien_direction = 1
 				self.alien_move_down(2)	
 
 	def alien_move_down(self):
