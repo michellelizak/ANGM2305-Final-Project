@@ -29,6 +29,7 @@ class Game:
 
 		#alien setup
 		self.aliens = pygame.sprite.Group()
+		self.alien_lasers = pygame.sprite.Group()
 		self.alien_setup(rows = 6, cols = 8)
 		self.alien_direction = 1
 
