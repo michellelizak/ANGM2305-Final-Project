@@ -25,7 +25,7 @@ class Game:
 
 		#extra setup
 		self.extra = pygame.sprite.GroupSingle()
-		self.extra_spawn_time = randint(400,800)
+		self.extra_spawn_time = randint(40,80)
 
 	def create_obstacle(self,x_start,y_start,offset_x):
 		for row_index, row in enumerate(self.shape):
@@ -72,6 +72,7 @@ class Game:
 			self.alien_lasers.add(laser_sprite)
 
 	def extra_alien_timer(self):
+		self.extra_spawn_time -= 1
 		if self.extra_spawn_time <= 0:
 			self.extra.add(Extra(choice(['right,left']),screen_width))
 			self.extra_spawn_time = randint(400,800)
@@ -80,12 +81,15 @@ class Game:
 		self.player.update()
 		self.aliens.update(self.alien_direction)
 		self.alien_position_checker()
+		self.extra_alien_timer()
+		self.extra.update()
 
 		self.player.sprite.lasers.draw(screen)
 		self.player.draw(screen)
 
 		self.blocks.draw(screen)
 		self.aliens.draw(screen)
+
 		#draw sprite groups
 
 if __name__ == '__main__':
