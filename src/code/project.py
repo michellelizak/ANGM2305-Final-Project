@@ -105,6 +105,20 @@ class Game:
 				#aliens collisions
 				if pygame.sprite.spritecollide(laser,self.aliens,True):
 					laser.kill()
+
+				#collisions
+				if pygame.sprite.spritecollide(laser,self.extra,True):
+					laser.kill()
+
+				#alien
+				if self.alien_lasers:
+					for laser in self.alien_lasers:
+						if pygame.sprite.spritecollide(laser,self.blocks,True):
+							laser.kill()
+
+						if pygame.sprite.spritecollide(laser,self.blocks,True):
+							laser.kill()
+							print('dead')
 if __name__ == '__main__':
 	pygame.init()
 	screen_width = 600
