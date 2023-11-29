@@ -92,6 +92,14 @@ class Game:
 				if pygame.sprite.spritecollide(laser,self.blocks,True):
 					laser.kill()
 
+				
+				if pygame.sprite.spritecollide(laser,self.player,False):
+					laser.kill()
+					self.lives -= 1
+					if self.lives <= 0:
+						pygame.quit()
+						sys.exit()
+
 				#aliens collisions
 				if pygame.sprite.spritecollide(laser,self.aliens,True):
 					laser.kill()
@@ -120,7 +128,7 @@ class Game:
 
 	def display_lives(self):
 		for live in range(self.lives - 1):
-			x = self.live_x_start_pos + (live * self.live_surface[0] + 10)
+			x = self.live_x_start_pos + (live * (self.live_surf.get_size()[0] + 10))
 			screen.blit(self.live_surf,(x,8))
 
 
@@ -128,8 +136,11 @@ class Game:
 		self.player.update()
 		self.aliens.update(self.alien_direction)
 		self.alien_position_checker()
+		self.alien_lasers.update()
 		self.extra_alien_timer()
 		self.extra.update()
+		self.collision_checks()
+		self.display_lives()
 
 		self.player.sprite.lasers.draw(screen)
 		self.player.draw(screen)
