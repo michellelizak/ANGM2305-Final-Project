@@ -87,12 +87,16 @@ if __name__ == '__main__':
 	clock = pygame.time.Clock()
 	game = Game()
 
+	ALIENLASER = pygame.USEREVENT + 1
+	pygame.time.set_timer(ALIENLASER,800)
 
 	while True:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				sys.exit()
+			if event.type == ALIENLASER
+			game_alien_shoot()
 
 		screen.fill((30,30,30))
 			
