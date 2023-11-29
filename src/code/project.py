@@ -94,7 +94,6 @@ class Game:
 				if pygame.sprite.spritecollide(laser,self.blocks,True):
 					laser.kill()
 
-				
 				if pygame.sprite.spritecollide(laser,self.player,False):
 					laser.kill()
 					self.lives -= 1
@@ -107,7 +106,10 @@ class Game:
 					laser.kill()
 
 				#collisions
-				if pygame.sprite.spritecollide(laser,self.extra,True):
+				aliens_hit = pygame.sprite.spritecollide(laser,self.aliens,True)
+				if aliens_hit:
+					for alien in aliens_hit:
+						self.score += alien.value
 					laser.kill()
 
 				#alien
