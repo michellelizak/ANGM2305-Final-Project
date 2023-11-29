@@ -110,7 +110,7 @@ if __name__ == '__main__':
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				sys.exit()
-			if event.type == ALIENLASER
+			if event.type == ALIENLASER:
 			game_alien_shoot()
 
 		screen.fill((30,30,30))
