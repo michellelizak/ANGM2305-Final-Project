@@ -54,7 +54,13 @@ class Game:
 				self.alien_move_down(2)
 			elif alien.rect.left <= 0:
 				self.alien_direction = 1
-	
+				self.alien_move_down(2)	
+
+	def alien_shoot(self):
+		if self.aliens.sprites():
+			random_alien = choice(self.aliens.sprites)
+			laser_sprite = Laser(random_alien.rect.center,6,speed,screen_height)
+
 	def alien_move_down(self):
 		if self.aliens:
 			for alien in self.aliens.sprites():
