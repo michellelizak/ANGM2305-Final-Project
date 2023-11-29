@@ -1,7 +1,9 @@
 import pygame, sys
 from player import Player
 import obstacle
-from alien import Alien
+from alien import Alien, Extra
+from random import choice, randint
+from laser import Laser
 
 class Game:
 	
