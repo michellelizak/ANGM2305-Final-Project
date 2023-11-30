@@ -1,5 +1,4 @@
 import pygame 
-from laser import Laser
 
 class Laser(pygame.sprite.Sprite):
 	def __init__(self,pos,speed,screen_height):
