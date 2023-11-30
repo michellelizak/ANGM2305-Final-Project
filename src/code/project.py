@@ -19,7 +19,7 @@ class Game:
 		self.score = 0
 		self.font = pygame.font.Font('../font/Pixeled.ttf',20)
 		self.highscore = 0
-		
+
 		#obstacle setup
 		self.shape = obstacle.shape
 		self.block_size = 6
@@ -37,7 +37,7 @@ class Game:
 		#extra setup
 		self.extra = pygame.sprite.GroupSingle()
 		self.extra_spawn_time = randint(40,80)
-
+		
 	def create_obstacle(self, x_start, y_start,offset_x):
 		for row_index, row in enumerate(self.shape):
 			for col_index,col in enumerate(row):
@@ -89,6 +89,10 @@ class Game:
 			self.extra.add(Extra(choice(['right','left']),screen_width))
 			self.extra_spawn_time = randint(400,800)
 
+	def check_for_highscore(self):
+		if self.score > self.highscore:
+			self.highscore = self.score
+
 	def collision_checks(self):
 		#player lasers
 		if self.player.sprite.lasers:
@@ -102,11 +106,13 @@ class Game:
 				if aliens_hit:
 					for alien in aliens_hit:
 						self.score += alien.value
+						self.check_for_highscore()
 					laser.kill()
 
 				# extra collision
 				if pygame.sprite.spritecollide(laser,self.extra,True):
 					self.score += 500
+					self.check_for_highscore()
 					laser.kill()
 
 		# alien lasers 
