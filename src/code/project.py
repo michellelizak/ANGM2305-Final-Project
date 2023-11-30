@@ -151,7 +151,7 @@ class Game:
 		score_rect = score_surf.get_rect(topleft = (10,-10))
 		screen.blit(score_surf,score_rect)
 		highscore_text_surface = self.font.render("HIGH-SCORE", False,'white')
-		screen.blit(highscore_text_surface, (400, 15, 20, 50))
+		screen.blit(highscore_text_surface, (10, 30, 20, 50))
 		
 	def victory_message(self):
 		if not self.aliens.sprites():
