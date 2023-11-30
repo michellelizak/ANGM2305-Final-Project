@@ -12,6 +12,8 @@ class Game:
 		player_sprite = Player((screen_width / 2,screen_height),screen_width,5)
 		self.player = pygame.sprite.GroupSingle(player_sprite)
 
+		YELLOW = (243, 216, 63)
+
 		# health and score setup
 		self.lives = 3
 		self.live_surf = pygame.image.load('../graphics/player.png').convert_alpha()
@@ -19,7 +21,7 @@ class Game:
 		self.score = 0
 		self.font = pygame.font.Font('../font/Pixeled.ttf',20)
 		self.highscore = 0
-
+		
 		#obstacle setup
 		self.shape = obstacle.shape
 		self.block_size = 6
@@ -148,7 +150,9 @@ class Game:
 		score_surf = self.font.render(f'score: {self.score}',False,'white')
 		score_rect = score_surf.get_rect(topleft = (10,-10))
 		screen.blit(score_surf,score_rect)
-
+		highscore_text_surface = self.font.render("HIGH-SCORE", False,'white')
+		screen.blit(highscore_text_surface, (550, 15, 20, 50))
+		
 	def victory_message(self):
 		if not self.aliens.sprites():
 			victory_surf = self.font.render('You won!',False,'white')
@@ -185,6 +189,8 @@ if __name__ == '__main__':
 	screen = pygame.display.set_mode((screen_width,screen_height))
 	clock = pygame.time.Clock()
 	game = Game()
+
+
 
 	ALIENLASER = pygame.USEREVENT + 1
 	pygame.time.set_timer(ALIENLASER,800)
