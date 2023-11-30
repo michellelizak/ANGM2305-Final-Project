@@ -20,7 +20,7 @@ class Extra(pygame.sprite.Sprite):
         self.image = pygame.image.load('../graphics/extra.png').convert_alpha()
 
         if side == 'right':
-            x = screen_wdith + 50
+            x = screen_width + 50
             self.speed = - 3
         else:
             x = -50
