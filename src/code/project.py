@@ -102,9 +102,9 @@ class Game:
 		try:
 			with open("highscore.txt", "r") as file:
 				self.highscore = int(file.read())
-		except FileNotFoundError
+		except FileNotFoundError:
 			self.highscore = 0
-			
+
 	def collision_checks(self):
 		#player lasers
 		if self.player.sprite.lasers:
