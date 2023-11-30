@@ -154,6 +154,7 @@ class Game:
 		screen.blit(highscore_text_surface, (10, 30, 20, 50))
 		formatted_highscore = str(game.highscore).zfill(5)
 		highscore_surface = self.font.render(formatted_highscore, False, 'white')
+		screen.blit(highscore_surface,(200, 30, 20, 50))
 
 	def victory_message(self):
 		if not self.aliens.sprites():
