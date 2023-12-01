@@ -142,8 +142,8 @@ class Game:
 					laser.kill()
 					self.lives -= 1
 					if self.lives <= 0:
-						pygame.quit()
-						sys.exit()
+						if self.lives == 0:
+							self.game_over()
 
 		# aliens
 		if self.aliens:
@@ -151,8 +151,7 @@ class Game:
 				pygame.sprite.spritecollide(alien,self.blocks,True)
 
 				if pygame.sprite.spritecollide(alien,self.player,False):
-					pygame.quit()
-					sys.exit()
+					self.game_over()
 	
 
 	def display_lives(self):
@@ -163,18 +162,27 @@ class Game:
 	def display_score(self):
 		score_surf = self.font.render(f'score: {self.score}',False,'white')
 		score_rect = score_surf.get_rect(topleft = (10,-10))
-		screen.blit(score_surf,score_rect)
+
 		highscore_text_surface = self.font.render("HIGH-SCORE", False,'white')
 		screen.blit(highscore_text_surface, (10, 30, 20, 50))
 		formatted_highscore = str(game.highscore).zfill(5)
 		highscore_surface = self.font.render(formatted_highscore, False, 'white')
 		screen.blit(highscore_surface,(200, 30, 20, 50))
+		game_over_surface = self.font.render("GAME OVER", False, 'white')
+
+		if game.run:
+			screen.blit(score_surf,score_rect)
+		else:
+			screen.blit(game_over_surface, (570, 740, 50, 50))	
 
 	def victory_message(self):
 		if not self.aliens.sprites():
 			victory_surf = self.font.render('You won!',False,'white')
 			victory_rect = victory_surf.get_rect(center = (screen_width / 2, screen_height / 2))
 			screen.blit(victory_surf,victory_rect)
+
+	def game_over(self):
+		self.run = False
 
 	def run(self):
 		
