@@ -180,17 +180,17 @@ class Game:
 
 		if self.aliens.sprites():
 			if self.lives <= 0:
-				explosion_color = (0, 128, 128) 
-				explosion_radius = 50
-				explosion_particles = 30
+				explosion_color = (51, 204, 204)
+				explosion_radius = 70
+				explosion_particles = 100
 
 				for _ in range(explosion_particles):
 					x = self.player.sprite.rect.centerx + randint(-explosion_radius, explosion_radius)
 					y = self.player.sprite.rect.centery + randint(-explosion_radius, explosion_radius)
-					pygame.draw.circle(screen, explosion_color, (x, y), 2)
+					pygame.draw.circle(screen, explosion_color, (x, y), 1)
 
 					pygame.display.flip()
-					pygame.time.delay(40)
+					pygame.time.delay(10)
 
 			game_over_surf = self.font.render("GAME OVER", False, 'white')
 			game_over_rect = game_over_surf.get_rect(center=(screen_width / 2, screen_height / 2))
