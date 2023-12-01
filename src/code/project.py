@@ -210,12 +210,14 @@ class Game:
 			sys.exit()
 
 	def typewriter_animation(self, text_surface):
+		text_content = str(text_surface)
+		
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				sys.exit()
 
-		for char in text_surface.get_text():
+		for char in text_content:
 			self.typewriter_text += char
 			rendered_text = self.typewriter_font.render(self.typewriter_text, False, 'white')
 			screen.blit(rendered_text, (screen_width // 2 - rendered_text.get_width() // 2,
