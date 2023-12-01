@@ -4,6 +4,7 @@ import obstacle
 from alien import Alien, Extra
 from random import choice, randint
 from laser import Laser
+import os
 
 class Game:
 	
@@ -11,8 +12,6 @@ class Game:
 		# Player setup
 		player_sprite = Player((screen_width / 2,screen_height),screen_width,5)
 		self.player = pygame.sprite.GroupSingle(player_sprite)
-
-		YELLOW = (243, 216, 63)
 
 		# health and score setup
 		self.lives = 3
@@ -40,6 +39,11 @@ class Game:
 		self.extra = pygame.sprite.GroupSingle()
 		self.extra_spawn_time = randint(40,80)
 		
+		# pygame.transform.scale(pygame.image.load(os.path.join("graphics", "background-black.png")), (screen_width, screen_height))
+		base_path = os.path.dirname(os.path.abspath(__file__))
+		image_path = os.path.join(base_path, "graphics", "background-black.png")
+		self.BG_IMAGE = pygame.transform.scale(pygame.image.load(image_path), (screen_width, screen_height))
+
 	def create_obstacle(self, x_start, y_start,offset_x):
 		for row_index, row in enumerate(self.shape):
 			for col_index,col in enumerate(row):
@@ -173,6 +177,9 @@ class Game:
 			screen.blit(victory_surf,victory_rect)
 
 	def run(self):
+		
+		screen.blit(self.BG_IMAGE, (0, 0))
+
 		self.player.update()
 		self.alien_lasers.update()
 		self.extra.update()
@@ -191,6 +198,7 @@ class Game:
 		self.display_lives()
 		self.display_score()
 		self.victory_message()
+
 
 		#draw sprite groups
 
