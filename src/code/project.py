@@ -41,7 +41,7 @@ class Game:
 		
 		# pygame.transform.scale(pygame.image.load(os.path.join("graphics", "background-black.png")), (screen_width, screen_height))
 		base_path = os.path.dirname(os.path.abspath(__file__))
-		image_path = os.path.join(base_path, "graphics", "background-black.png")
+		image_path = os.path.join(base_path, "..", "graphics", "background-black.png")
 		self.BG_IMAGE = pygame.transform.scale(pygame.image.load(image_path), (screen_width, screen_height))
 
 	def create_obstacle(self, x_start, y_start,offset_x):
@@ -50,7 +50,7 @@ class Game:
 				if col == 'x':
 					x = x_start + col_index * self.block_size + offset_x
 					y = y_start + row_index * self.block_size
-					block = obstacle.Block(self.block_size,(241,79,80),x,y)
+					block = obstacle.Block(self.block_size,(255, 204, 0),x,y)
 					self.blocks.add(block)
 
 	def create_multiple_obstacles(self,*offset,x_start,y_start):
