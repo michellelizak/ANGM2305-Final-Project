@@ -209,6 +209,12 @@ class Game:
 			pygame.quit()
 			sys.exit()
 
+	def typewriter_animation(self, text_surface):
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				pygame.quit()
+				sys.exit()
+
 	def run(self):
 		
 		screen.blit(self.BG_IMAGE, (0, 0))
