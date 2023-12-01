@@ -39,10 +39,16 @@ class Game:
 		self.extra = pygame.sprite.GroupSingle()
 		self.extra_spawn_time = randint(40,80)
 		
+		#background setup
 		# pygame.transform.scale(pygame.image.load(os.path.join("graphics", "background-black.png")), (screen_width, screen_height))
 		base_path = os.path.dirname(os.path.abspath(__file__))
 		image_path = os.path.join(base_path, "..", "graphics", "background-black.png")
 		self.BG_IMAGE = pygame.transform.scale(pygame.image.load(image_path), (screen_width, screen_height))
+
+		#typewriter animation
+		self.typewriter_font = pygame.font.Font('../font/Pixeled.ttf', 30)
+		self.typewriter_text = "" 
+		self.typewriter_speed = 30
 
 	def create_obstacle(self, x_start, y_start,offset_x):
 		for row_index, row in enumerate(self.shape):
