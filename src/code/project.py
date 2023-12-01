@@ -215,6 +215,14 @@ class Game:
 				pygame.quit()
 				sys.exit()
 
+		for char in text_surface.get_text():
+			self.typewriter_text + char
+			rendered_text = self.typewriter_font.render(self.typewriter_text, False, 'white')
+			screen.blit(rendered_text, (screen_width // 2 - rendered_text.get_width() // 2,
+                                        screen_height // 2 - rendered_text.get_height() // 2))
+			pygame.display.flip()
+			pygame.time.wait(self.typewriter_speed)
+
 	def run(self):
 		
 		screen.blit(self.BG_IMAGE, (0, 0))
