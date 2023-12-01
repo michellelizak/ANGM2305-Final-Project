@@ -179,6 +179,11 @@ class Game:
 	def game_over(self):
 
 		if self.aliens.sprites():
+			if self.lives <= 0:
+				explosion_color = (0, 128, 128)  # Teal color
+				explosion_radius = 10
+				explosion_particles = 20
+				
 			game_over_surf = self.font.render("GAME OVER", False, 'white')
 			game_over_rect = game_over_surf.get_rect(center=(screen_width / 2, screen_height / 2))
 			screen.blit(game_over_surf, game_over_rect)
