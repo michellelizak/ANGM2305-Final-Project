@@ -209,7 +209,7 @@ class Game:
 			pygame.quit()
 			sys.exit()
 
-	def typewriter_animation(self, text_content):
+	def typewriter_animation(self, text_surface):
 		self.typewriter_text = ""
 
 		for event in pygame.event.get():
@@ -218,15 +218,19 @@ class Game:
 				sys.exit()
 
 
-		for char in text_content:
-			self.typewriter_text += char
-			rendered_text = self.typewriter_font.render(self.typewriter_text, False, 'white')
-			screen.blit(rendered_text, (screen_width // 2 - rendered_text.get_width() // 2,
-                                        screen_height // 2 - rendered_text.get_height() // 2))
+		if isinstance(text_surface, pygame.Surface):
+        # If text_surface is a Pygame Surface, draw it directly
+			screen.blit(text_surface, (screen_width // 2 - text_surface.get_width() // 2,
+                                    screen_height // 2 - text_surface.get_height() // 2))
+			
 			pygame.display.flip()
 			pygame.time.wait(self.typewriter_speed)
 
 		pygame.time.delay(2000)
+
+
+
+
 
 	def run(self):
 		
