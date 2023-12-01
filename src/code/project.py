@@ -158,6 +158,7 @@ class Game:
 
 				if pygame.sprite.spritecollide(alien,self.player,False):
 					self.game_over()
+					
 	
 
 	def display_lives(self):
@@ -181,7 +182,8 @@ class Game:
 			victory_surf = self.font.render('You won!',False,'white')
 			victory_rect = victory_surf.get_rect(center = (screen_width / 2, screen_height / 2))
 			screen.blit(victory_surf,victory_rect)
-
+			self.typewriter_animation(victory_surf)
+			
 	def game_over(self):
 
 		if self.aliens.sprites():
@@ -199,6 +201,7 @@ class Game:
 					pygame.time.delay(10)
 
 			game_over_surf = self.font.render("GAME OVER", False, 'white')
+			self.typewriter_animation(game_over_surf)
 			game_over_rect = game_over_surf.get_rect(center=(screen_width / 2, screen_height / 2))
 			screen.blit(game_over_surf, game_over_rect)
 			pygame.display.flip()
