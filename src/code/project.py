@@ -223,6 +223,8 @@ class Game:
 			pygame.display.flip()
 			pygame.time.wait(self.typewriter_speed)
 
+		pygame.time.delay(2000)
+
 	def run(self):
 		
 		screen.blit(self.BG_IMAGE, (0, 0))
