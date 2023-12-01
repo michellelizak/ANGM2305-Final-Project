@@ -211,11 +211,13 @@ class Game:
 
 	def typewriter_animation(self, text_surface):
 		text_content = str(text_surface)
-		
+
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				sys.exit()
+
+		self.typewriter_text = ""
 
 		for char in text_content:
 			self.typewriter_text += char
