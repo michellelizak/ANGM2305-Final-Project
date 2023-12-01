@@ -180,9 +180,12 @@ class Game:
 
 		if self.aliens.sprites():
 			game_over_surf = self.font.render("GAME OVER", False, 'white')
-			game_over_rect = game_over_surf.get_rect(center = (screen_width / 2, screen_height / 2))
-			screen.blit(game_over_surf,game_over_rect)
-			self.run = False
+			game_over_rect = game_over_surf.get_rect(center=(screen_width / 2, screen_height / 2))
+			screen.blit(game_over_surf, game_over_rect)
+			pygame.display.flip()
+			pygame.time.delay(2000)  
+			pygame.quit()
+			sys.exit()
 
 	def run(self):
 		
