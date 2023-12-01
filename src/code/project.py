@@ -183,7 +183,13 @@ class Game:
 				explosion_color = (0, 128, 128)  # Teal color
 				explosion_radius = 10
 				explosion_particles = 20
-				
+
+				for _ in range(explosion_particles):
+					x = self.player.sprite.rect.centerx + randint(-explosion_radius, explosion_radius)
+					y = self.player.sprite.rect.centery + randint(-explosion_radius, explosion_radius)
+					pygame.draw.circle(screen, explosion_color, (x, y), 2)
+
+
 			game_over_surf = self.font.render("GAME OVER", False, 'white')
 			game_over_rect = game_over_surf.get_rect(center=(screen_width / 2, screen_height / 2))
 			screen.blit(game_over_surf, game_over_rect)
