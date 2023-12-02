@@ -184,7 +184,10 @@ class Game:
 			text_surface = font.render(current_text, False, color)
 			text_rect = text_surface.get_rect(center=center_position)
 
-
+			screen.blit(self.BG_IMAGE, (0, 0))  # Clear the screen
+			screen.blit(text_surface, text_rect)
+			pygame.display.flip()
+			pygame.time.delay(50)
 
 	def victory_message(self):
 		if not self.aliens.sprites():
