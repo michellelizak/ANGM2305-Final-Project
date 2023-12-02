@@ -173,13 +173,17 @@ class Game:
 		highscore_surface = self.font.render(formatted_highscore, False, 'white')
 		screen.blit(highscore_surface,(200, 30, 20, 50))
 
+	def typewriter_effec(self):
+
+
+
+
 
 	def victory_message(self):
 		if not self.aliens.sprites():
 			victory_surf = self.font.render('You won!',False,'white')
 			victory_rect = victory_surf.get_rect(center = (screen_width / 2, screen_height / 2))
 			screen.blit(victory_surf,victory_rect)
-			self.typewriter_animation(victory_surf)
 			
 	def game_over(self):
 
@@ -198,18 +202,12 @@ class Game:
 					pygame.time.delay(10)
 
 			game_over_surf = self.font.render("GAME OVER", False, 'white')
-			self.typewriter_animation(game_over_surf)
 			game_over_rect = game_over_surf.get_rect(center=(screen_width / 2, screen_height / 2))
 			screen.blit(game_over_surf, game_over_rect)
 			pygame.display.flip()
 			pygame.time.delay(2000)  
 			pygame.quit()
 			sys.exit()
-
-	def typewriter_animation(self):
-
-
-
 
 
 	def run(self):
