@@ -209,24 +209,7 @@ class Game:
 			pygame.quit()
 			sys.exit()
 
-	def typewriter_animation(self, text_surface):
-		self.typewriter_text = ""
-
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				pygame.quit()
-				sys.exit()
-
-
-		if isinstance(text_surface, pygame.Surface):
-        # If text_surface is a Pygame Surface, draw it directly
-			screen.blit(text_surface, (screen_width // 2 - text_surface.get_width() // 2,
-                                    screen_height // 2 - text_surface.get_height() // 2))
-			
-			pygame.display.flip()
-			pygame.time.wait(self.typewriter_speed)
-
-		pygame.time.delay(2000)
+	def typewriter_animation(self):
 
 
 
