@@ -5,6 +5,7 @@ from alien import Alien, Extra
 from random import choice, randint
 from laser import Laser
 import os
+import math
 
 class Game:
 	
