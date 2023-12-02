@@ -57,6 +57,9 @@ class Game:
 					block = obstacle.Block(self.block_size,(255, 204, 0),x,y)
 					self.blocks.add(block)
 
+	def draw_explosion(self):
+		
+
 	def create_multiple_obstacles(self,*offset,x_start,y_start):
 		for offset_x in offset:
 			self.create_obstacle(x_start,y_start,offset_x)
