@@ -17,3 +17,5 @@ class Laser(pygame.sprite.Sprite):
 	def update(self):
 		self.rect.y += self.speed
 		self.destroy()
+
+	def create_gradient_surface(self):
