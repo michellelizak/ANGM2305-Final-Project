@@ -3,9 +3,9 @@ import pygame
 class Laser(pygame.sprite.Sprite):
 	def __init__(self,pos,speed,screen_height):
 		super().__init__()
-		self.image = pygame.Surface((4,20))
+		self.image = pygame.Surface((5,20))
 		self.length = 20
-		self.image = self.create_gradient_surface(4, 20)
+		self.image = self.create_gradient_surface(70,40)
 		self.rect = self.image.get_rect(center = pos)
 		self.speed = speed
 		self.height_y_constraint = screen_height
@@ -23,7 +23,6 @@ class Laser(pygame.sprite.Sprite):
 
 		for i in range(length):
 			yellow_component = int(255 * (1 - i / length))
-			green_component = int(255 * (i / length))
 			alpha = 255 
 
 			pygame.draw.line(gradient_surface, (255, yellow_component, 0, alpha), (width // 2, i), (width // 2, i + 1))
