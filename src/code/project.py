@@ -184,16 +184,14 @@ class Game:
 			text_surface = font.render(current_text, False, color)
 			text_rect = text_surface.get_rect(center=center_position)
 
-			screen.blit(self.BG_IMAGE, (0, 0))  # Clear the screen
+			screen.blit(self.BG_IMAGE, (0, 0))  
 			screen.blit(text_surface, text_rect)
 			pygame.display.flip()
 			pygame.time.delay(50)
 
 	def victory_message(self):
-		if not self.aliens.sprites():
-			victory_surf = self.font.render('You won!',False,'white')
-			victory_rect = victory_surf.get_rect(center = (screen_width / 2, screen_height / 2))
-			screen.blit(victory_surf,victory_rect)
+            self.typewriter_effect('You won!', 'white', (screen_width / 2, screen_height / 2))  
+            self.victory_displayed = True
 			
 	def game_over(self):
 
@@ -211,13 +209,10 @@ class Game:
 					pygame.display.flip()
 					pygame.time.delay(10)
 
-			game_over_surf = self.font.render("GAME OVER", False, 'white')
-			game_over_rect = game_over_surf.get_rect(center=(screen_width / 2, screen_height / 2))
-			screen.blit(game_over_surf, game_over_rect)
-			pygame.display.flip()
-			pygame.time.delay(2000)  
-			pygame.quit()
-			sys.exit()
+				self.typewriter_effect('GAME OVER', 'white', (screen_width / 2, screen_height / 2))
+				pygame.time.delay(3000)
+				pygame.quit()
+				sys.exit()
 
 
 	def run(self):
