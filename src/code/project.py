@@ -206,7 +206,7 @@ class Game:
 
 	def victory_message(self):
 		if not self.aliens.sprites():
-			self.typewriter_effect('You won!', 'white', (screen_width / 2, screen_height / 2))  
+			self.typewriter_effect('You won!', 'green', (screen_width / 2, screen_height / 2))  
 			self.victory_displayed = True
 			
 	def game_over(self):
@@ -225,7 +225,7 @@ class Game:
 					pygame.display.flip()
 					pygame.time.delay(10)
 
-				self.typewriter_effect('GAME OVER', 'white', (screen_width / 2, screen_height / 2))
+				self.typewriter_effect('GAME OVER', 'red', (screen_width / 2, screen_height / 2))
 				pygame.time.delay(3000)
 				pygame.quit()
 				sys.exit()
