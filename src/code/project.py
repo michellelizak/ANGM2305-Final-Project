@@ -136,6 +136,7 @@ class Game:
 				aliens_hit = pygame.sprite.spritecollide(laser,self.aliens,True)
 				if aliens_hit:
 					for alien in aliens_hit:
+						self.draw_explosion(alien.rect.center, (255, 255, 255), 70, 100)
 						self.score += alien.value
 						self.check_for_highscore()
 					laser.kill()
