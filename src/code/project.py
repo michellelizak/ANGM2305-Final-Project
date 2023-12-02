@@ -57,8 +57,16 @@ class Game:
 					block = obstacle.Block(self.block_size,(255, 204, 0),x,y)
 					self.blocks.add(block)
 
-	def draw_explosion(self):
-		
+	def draw_explosion(self, center, explosion_color, explosion_radius=70, explosion_particles=100):
+		for _ in range(explosion_particles):
+			angle = math.radians(randint(0, 360))
+			distance = randint(1, explosion_radius)
+			x = int(center[0] + distance * math.cos(angle))
+			y = int(center[1] + distance * math.sin(angle))
+			pygame.draw.circle(screen, explosion_color, (x, y), 1)
+
+		pygame.display.flip()
+		pygame.time.delay(10)
 
 	def create_multiple_obstacles(self,*offset,x_start,y_start):
 		for offset_x in offset:
