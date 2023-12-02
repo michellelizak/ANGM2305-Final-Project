@@ -173,12 +173,16 @@ class Game:
 		highscore_surface = self.font.render(formatted_highscore, False, 'white')
 		screen.blit(highscore_surface,(200, 30, 20, 50))
 
-	def typewriter_effect(self, color, center_position, font_size):
+	def typewriter_effect(self, text, color, center_position, font_size):
 		font = pygame.font.Font('../font/Pixeled.ttf', font_size)
 		current_text = ""
 		text_surface = font.render(current_text, False, color)
 		text_rect = text_surface.get_rect(center=center_position)
 
+		for char in text:
+			current_text += char
+			text_surface = font.render(current_text, False, color)
+			text_rect = text_surface.get_rect(center=center_position)
 
 
 
