@@ -18,4 +18,11 @@ class Laser(pygame.sprite.Sprite):
 		self.rect.y += self.speed
 		self.destroy()
 
-	def create_gradient_surface(self):
+	def create_gradient_surface(self,length):
+		gradient_surface = pygame.Surface((4, length), pygame.SRCALPHA)
+
+		for i in range(length):
+			alpha = int(255 * (1 - i / length)) 
+			pygame.draw.line(gradient_surface, (0, 255, 0, alpha), (2, i), (2, i + 1))
+
+		return gradient_surface
