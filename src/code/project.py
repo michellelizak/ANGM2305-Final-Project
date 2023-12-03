@@ -9,8 +9,10 @@ import math
 
 class Game:
 	
-	def __init__(self):
-
+	def __init__(self, screen_width=600, screen_height=600):
+       
+		self.screen_width = screen_width
+		self.screen_height = screen_height
 
 		# Player setup
 		player_sprite = Player((screen_width / 2,screen_height),screen_width,5)
@@ -227,8 +229,7 @@ class Game:
 
 				self.typewriter_effect('GAME OVER', 'red', (screen_width / 2, screen_height / 2))
 				pygame.time.delay(3000)
-				pygame.quit()
-				sys.exit()
+				self.game_over_flag = True
 
 
 	def run(self):
@@ -256,6 +257,7 @@ class Game:
 
 
 		#draw sprite groups
+	def main(self):
 
 
 if __name__ == '__main__':
