@@ -20,3 +20,10 @@ GitHub Repo: <https://github.com/michellelizak/ANGM2305-Final-Project.git>
 - Improvements
 	- One area of improvement would be that the explosions hitting the aliens make the game a little bit choppy for lack of better wording, and I wish I could have improved upon it. I also planned originally to add a respawn mechanism to the game, but it was too complex for me to figure out how to implement it so I decided to add other features instead, like the exploding animation, text animations, and gradient effects on the lasers. Also, for some reason after I added the main function my extra alien at the top of the screen disappeared and I could not figure out how to get it back.
 
+##
+
+I referenced the video “Creating Space Invaders in Pygame/Python” by Clear Code on Youtube as a base, which I linked below. 
+
+<https://www.youtube.com/watch?v=o-6pADy5Mdg>
+
+
