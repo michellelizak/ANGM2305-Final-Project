@@ -269,7 +269,7 @@ class Game:
 					self.alien_shoot()
 
 		screen.fill((30,30,30))
-		game.run()
+		self.run()
 			
 		pygame.display.flip()
 		clock.tick(60)
