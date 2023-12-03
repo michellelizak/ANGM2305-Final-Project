@@ -49,7 +49,7 @@ class Game:
 		base_path = os.path.dirname(os.path.abspath(__file__))
 		image_path = os.path.join(base_path, "..", "graphics", "background-black.png")
 		self.BG_IMAGE = pygame.transform.scale(pygame.image.load(image_path), (screen_width, screen_height))
-
+		self.game_over_flag = False
 
 
 	def create_obstacle(self, x_start, y_start,offset_x):
@@ -261,10 +261,10 @@ class Game:
 		pygame.time.set_timer(ALIENLASER, 800)
 
 
-		while not self.game_over_flag:  # Continue the loop until the game over flag is set
+		while not self.game_over_flag:  
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
-					self.game_over_flag = True  # Set the flag to exit the loop
+					self.game_over_flag = True 
 				if event.type == ALIENLASER:
 					self.alien_shoot()
 
@@ -273,25 +273,14 @@ class Game:
 			
 		pygame.display.flip()
 		clock.tick(60)
-		
+
 if __name__ == '__main__':
-	pygame.init()
-	screen_width = 600
-	screen_height = 600
-	screen = pygame.display.set_mode((screen_width,screen_height))
-	clock = pygame.time.Clock()
-	game = Game()
-
-
-
-	ALIENLASER = pygame.USEREVENT + 1
-	pygame.time.set_timer(ALIENLASER,800)
-
-	while True:
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				pygame.quit()
-				sys.exit()
-			if event.type == ALIENLASER:
-				game.alien_shoot()
-
+    pygame.init()
+    screen_width = 600
+    screen_height = 600
+    screen = pygame.display.set_mode((screen_width, screen_height))
+    clock = pygame.time.Clock()
+    game = Game()
+    game.main()
+    pygame.quit()
+    sys.exit()
