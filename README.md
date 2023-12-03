@@ -1,7 +1,7 @@
 # ANGM2305-Final-Project: Space Invaders
 
 ## Demo
-Demo Video: <URL>
+Demo Video: <https://youtu.be/u4NzviOn9tQ)>
 
 ## GitHub Repository
 GitHub Repo: <https://github.com/michellelizak/ANGM2305-Final-Project.git>
