@@ -259,7 +259,7 @@ class Game:
 
 	def main(self):
 		ALIENLASER = pygame.USEREVENT + 1
-		pygame.time.set_timer(ALIENLASER, 800)
+		pygame.time.set_timer(ALIENLASER, 2000)
 
 		while not self.game_over_flag:
 			for event in pygame.event.get():
@@ -271,8 +271,7 @@ class Game:
 			screen.fill((30, 30, 30))
 			self.run()
 
-		pygame.display.flip()
-		clock.tick(60)
+			clock.tick(80)
 
 if __name__ == '__main__':
     pygame.init()
