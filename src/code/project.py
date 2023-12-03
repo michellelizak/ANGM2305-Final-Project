@@ -50,6 +50,8 @@ class Game:
 		image_path = os.path.join(base_path, "..", "graphics", "background-black.png")
 		self.BG_IMAGE = pygame.transform.scale(pygame.image.load(image_path), (self.screen_width, self.screen_height))
 		self.game_over_flag = False
+		self.victory_displayed = False
+		self.victory_time = 0
 
 
 	def create_obstacle(self, x_start, y_start,offset_x):
@@ -208,7 +210,8 @@ class Game:
 
 	def victory_message(self):
 		if not self.aliens.sprites():
-			self.typewriter_effect('You won!', 'green', (screen_width / 2, screen_height / 2))  
+			self.typewriter_effect('You won!', 'green', (screen_width / 2, screen_height / 2))
+			  
 			self.victory_displayed = True
 			
 	def game_over(self):
@@ -254,6 +257,12 @@ class Game:
 		self.display_lives()
 		self.display_score()
 		self.victory_message()
+
+
+		if not self.victory_displayed:
+			self.victory_message()
+		elif pygame.time.get_ticks() - self.victory_time > 5000:  # 5000 milliseconds (adjust as needed)
+				self.game_over_flag = True
 
 		pygame.display.flip()
 
