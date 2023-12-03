@@ -235,9 +235,9 @@ class Game:
 				self.typewriter_effect('GAME OVER', 'red', (screen_width / 2, screen_height / 2))
 				pygame.time.delay(2000)
 
-				self.typewriter_effect('HIGH SCORE', 'white', (screen_width / 2, screen_height / 2 + 50))
+				self.typewriter_effect('HIGH SCORE:', 'yellow', (screen_width / 2, screen_height / 2 + 50),font_size=30)
 				pygame.time.delay(500) 
-				self.typewriter_effect(str(self.highscore).zfill(5), 'white', (screen_width / 2, screen_height / 2 + 100))
+				self.typewriter_effect(str(self.score).zfill(5), 'yellow', (screen_width / 2, screen_height / 2 + 100),font_size=30)
 				pygame.time.delay(3000)
 
 				self.game_over_flag = True
