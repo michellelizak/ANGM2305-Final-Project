@@ -21,12 +21,12 @@ class Extra(pygame.sprite.Sprite):
 
         if side == 'right':
             x = screen_width + 50
-            self.speed = - 3
+            self.speed = - 0.5
         else:
             x = -50
-            self.speed = 3
+            self.speed = 0.5
 
-        self.rect = self.image.get_rect(topleft =(x,80))
+        self.rect = self.image.get_rect(topleft = (x,70))
 
     def update(self):
         self.rect.x += self.speed
