@@ -25,6 +25,7 @@ class Game:
 		self.score = 0
 		self.font = pygame.font.Font('../font/Pixeled.ttf',20)
 		self.highscore = 0
+		self.load_highscore()
 		
 		#obstacle setup
 		self.shape = obstacle.shape
@@ -233,6 +234,12 @@ class Game:
 
 				self.typewriter_effect('GAME OVER', 'red', (screen_width / 2, screen_height / 2))
 				pygame.time.delay(2000)
+
+				self.typewriter_effect('HIGH SCORE', 'white', (screen_width / 2, screen_height / 2 + 50))
+				pygame.time.delay(500) 
+				self.typewriter_effect(str(self.highscore).zfill(5), 'white', (screen_width / 2, screen_height / 2 + 100))
+				pygame.time.delay(3000)
+
 				self.game_over_flag = True
 				self.game_over_displayed = True
 
