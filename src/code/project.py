@@ -256,10 +256,24 @@ class Game:
 		self.victory_message()
 
 
-		#draw sprite groups
 	def main(self):
+		ALIENLASER = pygame.USEREVENT + 1
+		pygame.time.set_timer(ALIENLASER, 800)
 
 
+		while not self.game_over_flag:  # Continue the loop until the game over flag is set
+			for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					self.game_over_flag = True  # Set the flag to exit the loop
+				if event.type == ALIENLASER:
+					self.alien_shoot()
+
+		screen.fill((30,30,30))
+		game.run()
+			
+		pygame.display.flip()
+		clock.tick(60)
+		
 if __name__ == '__main__':
 	pygame.init()
 	screen_width = 600
@@ -281,8 +295,3 @@ if __name__ == '__main__':
 			if event.type == ALIENLASER:
 				game.alien_shoot()
 
-		screen.fill((30,30,30))
-		game.run()
-			
-		pygame.display.flip()
-		clock.tick(60)
