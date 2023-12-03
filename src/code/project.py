@@ -282,7 +282,7 @@ class Game:
 
 	def main(self):
 		ALIENLASER = pygame.USEREVENT + 1
-		pygame.time.set_timer(ALIENLASER, 2000)
+		pygame.time.set_timer(ALIENLASER, 1000)
 
 		while not self.game_over_flag:
 			for event in pygame.event.get():
