@@ -230,7 +230,7 @@ class Game:
 				self.typewriter_effect('GAME OVER', 'red', (screen_width / 2, screen_height / 2))
 				pygame.time.delay(3000)
 				self.game_over_flag = True
-
+				self.victory_displayed = True
 
 	def run(self):
 		
@@ -270,6 +270,7 @@ class Game:
 
 			screen.fill((30, 30, 30))
 			self.run()
+
 
 			clock.tick(80)
 
