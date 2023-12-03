@@ -48,7 +48,7 @@ class Game:
 		# pygame.transform.scale(pygame.image.load(os.path.join("graphics", "background-black.png")), (screen_width, screen_height))
 		base_path = os.path.dirname(os.path.abspath(__file__))
 		image_path = os.path.join(base_path, "..", "graphics", "background-black.png")
-		self.BG_IMAGE = pygame.transform.scale(pygame.image.load(image_path), (screen_width, screen_height))
+		self.BG_IMAGE = pygame.transform.scale(pygame.image.load(image_path), (self.screen_width, self.screen_height))
 		self.game_over_flag = False
 
 
@@ -60,17 +60,6 @@ class Game:
 					y = y_start + row_index * self.block_size
 					block = obstacle.Block(self.block_size,(255, 204, 0),x,y)
 					self.blocks.add(block)
-
-	def draw_explosion(self, center, explosion_color, explosion_radius=70, explosion_particles=100):
-		for _ in range(explosion_particles):
-			angle = math.radians(randint(0, 360))
-			distance = randint(1, explosion_radius)
-			x = int(center[0] + distance * math.cos(angle))
-			y = int(center[1] + distance * math.sin(angle))
-			pygame.draw.circle(screen, explosion_color, (x, y), 1)
-
-		pygame.display.flip()
-		pygame.time.delay(10)
 
 	def create_multiple_obstacles(self,*offset,x_start,y_start):
 		for offset_x in offset:
@@ -127,6 +116,17 @@ class Game:
 				self.highscore = int(file.read())
 		except FileNotFoundError:
 			self.highscore = 0
+
+	def draw_explosion(self, center, explosion_color, explosion_radius=70, explosion_particles=100):
+		for _ in range(explosion_particles):
+			angle = math.radians(randint(0, 360))
+			distance = randint(1, explosion_radius)
+			x = int(center[0] + distance * math.cos(angle))
+			y = int(center[1] + distance * math.sin(angle))
+			pygame.draw.circle(screen, explosion_color, (x, y), 1)
+
+		pygame.display.flip()
+		pygame.time.delay(10)
 
 	def collision_checks(self):
 		#player lasers
@@ -255,22 +255,22 @@ class Game:
 		self.display_score()
 		self.victory_message()
 
+		pygame.display.flip()
 
 	def main(self):
 		ALIENLASER = pygame.USEREVENT + 1
 		pygame.time.set_timer(ALIENLASER, 800)
 
-
-		while not self.game_over_flag:  
+		while not self.game_over_flag:
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
-					self.game_over_flag = True 
+					self.game_over_flag = True
 				if event.type == ALIENLASER:
 					self.alien_shoot()
 
-		screen.fill((30,30,30))
-		self.run()
-			
+			screen.fill((30, 30, 30))
+			self.run()
+
 		pygame.display.flip()
 		clock.tick(60)
 
