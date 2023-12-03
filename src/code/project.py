@@ -49,10 +49,11 @@ class Game:
 		base_path = os.path.dirname(os.path.abspath(__file__))
 		image_path = os.path.join(base_path, "..", "graphics", "background-black.png")
 		self.BG_IMAGE = pygame.transform.scale(pygame.image.load(image_path), (self.screen_width, self.screen_height))
+
 		self.game_over_flag = False
 		self.victory_displayed = False
 		self.victory_time = 0
-
+		self.game_over_displayed = False
 
 	def create_obstacle(self, x_start, y_start,offset_x):
 		for row_index, row in enumerate(self.shape):
@@ -211,7 +212,7 @@ class Game:
 	def victory_message(self):
 		if not self.aliens.sprites():
 			self.typewriter_effect('You won!', 'green', (screen_width / 2, screen_height / 2))
-			  
+			pygame.time.delay(3000)
 			self.victory_displayed = True
 			
 	def game_over(self):
@@ -228,12 +229,12 @@ class Game:
 					pygame.draw.circle(screen, explosion_color, (x, y), 1)
 
 					pygame.display.flip()
-					pygame.time.delay(10)
+					pygame.time.delay(20)
 
 				self.typewriter_effect('GAME OVER', 'red', (screen_width / 2, screen_height / 2))
-				pygame.time.delay(3000)
+				pygame.time.delay(2000)
 				self.game_over_flag = True
-				self.victory_displayed = True
+				self.game_over_displayed = True
 
 	def run(self):
 		
