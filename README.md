@@ -4,7 +4,7 @@
 Demo Video: <URL>
 
 ## GitHub Repository
-GitHub Repo: <URL>
+GitHub Repo: <https://github.com/michellelizak/ANGM2305-Final-Project.git>
 
 ## Description
 
